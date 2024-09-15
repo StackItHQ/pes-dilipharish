@@ -1,0 +1,11 @@
+This script synchronizes data from a Google Sheets document to a MySQL database. Here's a breakdown of the approach:
+
+    Google Sheets Authentication: It uses Google OAuth2 to authenticate and access the Google Sheets API.
+    MySQL Connection: Establishes a connection to a local MySQL database (superjoin) and fetches existing records from a table (users).
+    Data Fetching: It retrieves the data (name and email) from Google Sheets at regular intervals.
+    Sync Logic:
+        Compares the Google Sheets data with the existing MySQL records.
+        Inserts new records, updates existing ones if names have changed, and deletes records from MySQL if they no longer exist in Google Sheets.
+    Continuous Syncing: The script runs in a loop, syncing the data every 6 seconds.
+
+This keeps the MySQL users table updated with changes from Google Sheets in near real-time.
